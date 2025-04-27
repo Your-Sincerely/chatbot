@@ -1,0 +1,13 @@
+# docker-compose run --rm app
+
+services:
+  app:
+    build: .
+    container_name: chatterbot-container
+    ports:
+      - 5000:5000
+    volumes:
+      - ./src:/chatterbot/src
+    stdin_open: true 
+    tty: true
+    command: python3 ./src/app.py
